@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -83,13 +83,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##网页的生成过程，大致可以分成五步。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">HTML代码转化成DOM</div><div class="line">CSS代码转化成CSSOM（CSS Object Model）</div><div class="line">结合DOM和CSSOM，生成一棵渲染树（包含每个节点的视觉信息）</div><div class="line">生成布局（layout），即将所有渲染树的所有节点进行平面合成</div><div class="line">将布局绘制（paint）在屏幕上</div></pre></td></tr></table></figure>
+        <h2 id="网页的生成过程，大致可以分成五步。"><a href="#网页的生成过程，大致可以分成五步。" class="headerlink" title="网页的生成过程，大致可以分成五步。"></a>网页的生成过程，大致可以分成五步。</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">HTML代码转化成DOM</div><div class="line">CSS代码转化成CSSOM（CSS Object Model）</div><div class="line">结合DOM和CSSOM，生成一棵渲染树（包含每个节点的视觉信息）</div><div class="line">生成布局（layout），即将所有渲染树的所有节点进行平面合成</div><div class="line">将布局绘制（paint）在屏幕上</div></pre></td></tr></table></figure>
 <h3 id="前端优化的途径有很多，按粒度大致可以分为两类，第一类是页面级别的优化，例如-HTTP请求数、脚本的无阻塞加载、内联脚本的位置优化等-第二类则是代码级别的优化，例如-Javascript中的DOM-操作优化、CSS选择符优化、图片优化以及-HTML结构优化等等。"><a href="#前端优化的途径有很多，按粒度大致可以分为两类，第一类是页面级别的优化，例如-HTTP请求数、脚本的无阻塞加载、内联脚本的位置优化等-第二类则是代码级别的优化，例如-Javascript中的DOM-操作优化、CSS选择符优化、图片优化以及-HTML结构优化等等。" class="headerlink" title="前端优化的途径有很多，按粒度大致可以分为两类，第一类是页面级别的优化，例如 HTTP请求数、脚本的无阻塞加载、内联脚本的位置优化等 ;第二类则是代码级别的优化，例如 Javascript中的DOM 操作优化、CSS选择符优化、图片优化以及 HTML结构优化等等。"></a>前端优化的途径有很多，按粒度大致可以分为两类，第一类是页面级别的优化，例如 HTTP请求数、脚本的无阻塞加载、内联脚本的位置优化等 ;第二类则是代码级别的优化，例如 Javascript中的DOM 操作优化、CSS选择符优化、图片优化以及 HTML结构优化等等。</h3><h2 id="一、页面级优化"><a href="#一、页面级优化" class="headerlink" title="一、页面级优化"></a>一、页面级优化</h2><h3 id="1-如果可以的话，尽可能的将外部的脚本、样式进行合并，多个合为一个。另外，-CSS、-Javascript、Image-都可以用相应的工具进行压缩，压缩后往往能省下不少空间。webpack"><a href="#1-如果可以的话，尽可能的将外部的脚本、样式进行合并，多个合为一个。另外，-CSS、-Javascript、Image-都可以用相应的工具进行压缩，压缩后往往能省下不少空间。webpack" class="headerlink" title="1. 如果可以的话，尽可能的将外部的脚本、样式进行合并，多个合为一个。另外， CSS、 Javascript、Image 都可以用相应的工具进行压缩，压缩后往往能省下不少空间。webpack"></a>1. 如果可以的话，尽可能的将外部的脚本、样式进行合并，多个合为一个。另外， CSS、 Javascript、Image 都可以用相应的工具进行压缩，压缩后往往能省下不少空间。webpack</h3><h3 id="2-合并-CSS图片，减少请求数的又一个好办法。"><a href="#2-合并-CSS图片，减少请求数的又一个好办法。" class="headerlink" title="2. 合并 CSS图片，减少请求数的又一个好办法。"></a>2. 合并 CSS图片，减少请求数的又一个好办法。</h3><h3 id="3-使用-data-URL-scheme的方式将图片嵌入到页面或-CSS中。"><a href="#3-使用-data-URL-scheme的方式将图片嵌入到页面或-CSS中。" class="headerlink" title="3. 使用 data: URL scheme的方式将图片嵌入到页面或 CSS中。"></a>3. 使用 data: URL scheme的方式将图片嵌入到页面或 CSS中。</h3><h3 id="4-将静态资源缓存至localstorage中，做离线应用，但是localstorage的读写也有一定损耗，不支持的情况还需要做降级处理。另外，处理的时候js字符串这边用了evel函数，这个函数本身就有很多问题，性能上也不太好，所以，这块还要继续观察。"><a href="#4-将静态资源缓存至localstorage中，做离线应用，但是localstorage的读写也有一定损耗，不支持的情况还需要做降级处理。另外，处理的时候js字符串这边用了evel函数，这个函数本身就有很多问题，性能上也不太好，所以，这块还要继续观察。" class="headerlink" title="4. 将静态资源缓存至localstorage中，做离线应用，但是localstorage的读写也有一定损耗，不支持的情况还需要做降级处理。另外，处理的时候js字符串这边用了evel函数，这个函数本身就有很多问题，性能上也不太好，所以，这块还要继续观察。"></a>4. 将静态资源缓存至localstorage中，做离线应用，但是localstorage的读写也有一定损耗，不支持的情况还需要做降级处理。另外，处理的时候js字符串这边用了evel函数，这个函数本身就有很多问题，性能上也不太好，所以，这块还要继续观察。</h3><h2 id="二、代码级别"><a href="#二、代码级别" class="headerlink" title="二、代码级别"></a>二、代码级别</h2><h3 id="1-移动端选择vue-js-（虚拟Dom）-逐步放弃jQuery，Dom操作很消耗性能"><a href="#1-移动端选择vue-js-（虚拟Dom）-逐步放弃jQuery，Dom操作很消耗性能" class="headerlink" title="1. 移动端选择vue.js （虚拟Dom） 逐步放弃jQuery，Dom操作很消耗性能"></a>1. 移动端选择vue.js （虚拟Dom） 逐步放弃jQuery，Dom操作很消耗性能</h3><h3 id="2-每次-eval-或-Function-构造函数作用于字符串表示的源代码时，脚本引擎都需要将源代码转换成可执行代码。这是很消耗资源的操作-——-通常比简单的函数调用慢-100倍以上。eval-函数效率特别低，由于事先无法知晓传给-eval-的字符串中的内容，eval在其上下文中解释要处理的代码，也就是说编译器无法优化上下文，因此只能有浏览器在运行时解释代码。这对性能影响很大。Function-构造函数比-eval略好，因为使用此代码不会影响周围代码-但其速度仍很慢。"><a href="#2-每次-eval-或-Function-构造函数作用于字符串表示的源代码时，脚本引擎都需要将源代码转换成可执行代码。这是很消耗资源的操作-——-通常比简单的函数调用慢-100倍以上。eval-函数效率特别低，由于事先无法知晓传给-eval-的字符串中的内容，eval在其上下文中解释要处理的代码，也就是说编译器无法优化上下文，因此只能有浏览器在运行时解释代码。这对性能影响很大。Function-构造函数比-eval略好，因为使用此代码不会影响周围代码-但其速度仍很慢。" class="headerlink" title="2. 每次 eval 或 Function 构造函数作用于字符串表示的源代码时，脚本引擎都需要将源代码转换成可执行代码。这是很消耗资源的操作 —— 通常比简单的函数调用慢 100倍以上。eval 函数效率特别低，由于事先无法知晓传给 eval 的字符串中的内容，eval在其上下文中解释要处理的代码，也就是说编译器无法优化上下文，因此只能有浏览器在运行时解释代码。这对性能影响很大。Function 构造函数比 eval略好，因为使用此代码不会影响周围代码 ;但其速度仍很慢。"></a>2. 每次 eval 或 Function 构造函数作用于字符串表示的源代码时，脚本引擎都需要将源代码转换成可执行代码。这是很消耗资源的操作 —— 通常比简单的函数调用慢 100倍以上。eval 函数效率特别低，由于事先无法知晓传给 eval 的字符串中的内容，eval在其上下文中解释要处理的代码，也就是说编译器无法优化上下文，因此只能有浏览器在运行时解释代码。这对性能影响很大。Function 构造函数比 eval略好，因为使用此代码不会影响周围代码 ;但其速度仍很慢。</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/26/21070326/" data-id="cj0qmjaaz0000fsssbgum2xhg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/26/21070326/" data-id="cj0qolrjk0000wsssq83mlh6y" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -124,7 +123,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -145,7 +144,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
